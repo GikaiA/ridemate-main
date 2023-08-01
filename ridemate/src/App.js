@@ -24,13 +24,14 @@ function App() {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC85MIwtX_rzRTGvK1_8pj_ckShyhfTKDI",
-  authDomain: "ridemate-m3.firebaseapp.com",
-  projectId: "ridemate-m3",
-  storageBucket: "ridemate-m3.appspot.com",
-  messagingSenderId: "701704022330",
-  appId: "1:701704022330:web:724b4aa7454d0e2f7d0803",
-  measurementId: "G-FE1NQXQPPT"
+  apiKey: "AIzaSyCfYkjkGJXrbL3Usb9W5sIOYbXiv1yzOkQ",
+  authDomain: "ridemate-main.firebaseapp.com",
+  databaseURL: "https://ridemate-main-default-rtdb.firebaseio.com",
+  projectId: "ridemate-main",
+  storageBucket: "ridemate-main.appspot.com",
+  messagingSenderId: "204573329333",
+  appId: "1:204573329333:web:e790ab7585cdaa9d04fbfc",
+  measurementId: "G-HJGS4N8R8E"
 };
 
 // Initialize Firebase
