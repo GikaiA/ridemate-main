@@ -2,30 +2,23 @@ import React, { useState } from "react";
 import "./Login.css";
 import rideshareuser from "../images/rideshare-user.png";
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-// import authentication from './authentication';
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const onLogin = (e) => {
-  //   e.preventDefault();
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       navigate("/dashboard");
-  //       console.log(user);
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       console.log(errorCode, errorMessage);
-  //     });
-  // };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/dashboard"); // Redirect to the dashboard component after successful login
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
 
   return (
     <div className="login-page">
@@ -37,7 +30,7 @@ function Login() {
       </div>
       <div className="login-container">
         <h2 className="login-title">Login</h2>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="username" className="label-name">Email</label>
             <input
@@ -46,6 +39,7 @@ function Login() {
               placeholder="Email"
               required
               onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
           <div className="input-group">
@@ -56,10 +50,10 @@ function Login() {
               placeholder="Password"
               required
               onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </div>
           <div className="button-group">
-            {/* onClick={onLogin} */}
             <button className="login-button" >
               Login
             </button>{" "}

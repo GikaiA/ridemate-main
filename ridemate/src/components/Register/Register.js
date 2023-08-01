@@ -1,10 +1,8 @@
 import React from "react";
 import "./Register.css";
 import { useState } from "react";
-//import { createUserWithEmailAndPassword } from "firebase/auth";
-import {getAuth,createUserWithEmailAndPassword}from "firebase/auth";
-//import { initializeApp } from "firebase/app";
-// import { Auth } from "firebase/compat/auth";
+import {createUserWithEmailAndPassword}from "firebase/auth";
+import {auth} from "../firebase";
 import { useNavigate } from "react-router-dom";
 import ridematePhone from "../images/ridematePhone.png";
 import 'firebase/auth';
@@ -12,54 +10,38 @@ import 'firebase/analytics';
 
 function Register() {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-  const isValidEduEmail = (email) => {
-    // Add your list of valid edu email domains here
-    const validEduDomains = ["bc.edu", "fau.edu", "pbsc.edu"];
-    const domain = email.split("@")[1];
-    return validEduDomains.includes(domain);
-  };
 
-  const onSubmit = async (e) => {
+  // const isValidEduEmail = (email) => {
+  //   // Add your list of valid edu email domains here
+  //   const validEduDomains = ["bc.edu", "fau.edu", "pbsc.edu"];
+  //   const domain = email.split("@")[1];
+  //   return validEduDomains.includes(domain);
+  // };
+
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (!isValidEduEmail(email)) {
-      console.log("Please provide a valid edu email address.");
-      return;
-    }
-
-    const auth =getAuth();
+    // if (!isValidEduEmail(email)) {
+    //   console.log("Please provide a valid edu email address.");
+    //   return;
+    // }
 
     try{
-      await createUserWithEmailAndPassword(auth,email,password);
+      await createUserWithEmailAndPassword(auth, email, password);
+
+      await auth.currentUser.updateProfile({
+        displayName: `${firstName} ${lastName}`,
+      })
       navigate("/dashboard");
-
+    }catch (error) {
+      console.error("Error creating user:", error)
     }
-    catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    }
-  
-    // await createUserWithEmailAndPassword(Auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     console.log(user);
-    //     navigate("/dashboard");
-    //     //....
-    //   })
-      // .catch((error) => {
-      //   const errorCode = error.code;
-      //   const errorMessage = error.message;
-      //   console.log(errorCode, errorMessage);
-      // });
   };
-
-
 
   return (
     <div className="page">
@@ -72,7 +54,7 @@ function Register() {
           <div class="column-right">
             <div className="form-container">
               <h1 id="title">Register</h1>
-              <form className="register-form" onSubmit={onSubmit}>
+              <form className="register-form" onSubmit={handleRegister}>
                 <p className="register-info">
                   Please fill this form to create an account.
                 </p>
@@ -86,6 +68,8 @@ function Register() {
                     placeholder="Type your first name"
                     name="first name"
                     required
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
                   />
 
                   <label for="First Name" className="register-label">
@@ -97,6 +81,8 @@ function Register() {
                     placeholder="Type your last name"
                     name="last name"
                     required
+                    onChange={(e)=> setLastName(e.target.value)}
+                    value={lastName}
                   />
                 </div>
 
@@ -145,7 +131,7 @@ function Register() {
                   />
                 </div>
               </form>
-              <button className="submit-button" onClick={onSubmit}>
+              <button className="submit-button">
                 Create Account
               </button>
               <div className="link-to-register">
