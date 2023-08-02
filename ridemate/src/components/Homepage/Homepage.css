@@ -86,6 +86,7 @@ body{
     margin-left: 3%;
     border-radius: 50px;
     width: 25%;
+    height: auto;
 }
 
 .school-title{
@@ -103,6 +104,7 @@ body{
 .school-list{
     font-size: 23px;
     display: flex;
+    justify-content: center;
 }
 
 .logo-container{
