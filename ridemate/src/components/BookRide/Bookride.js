@@ -26,6 +26,10 @@ function BookRide() {
   const handleRequest = () => {
     if (location.trim() !== "") {
       // Save the ride request to Firestore or perform any other desired action
+      const BookRide ={
+        location:location.trim(),
+        timestamp:new Date(),
+      };
       // Make sure you have the necessary code for Firestore properly set up
       // For now, let's just clear the location input
       setLocation("");
