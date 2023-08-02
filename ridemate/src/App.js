@@ -11,7 +11,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Reviews from './components/Reviews/Reviews';
-import BookRide from './components/BookRide/BookRide';
+import Bookride from './components/Bookride/Bookride';
 import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
 
@@ -51,7 +51,7 @@ const analytics = getAnalytics(app);
           <Route exact path='/register' Component={Register}/>
           <Route exact path='/login' Component={Login}/>
           <Route exact path='/dashboard' Component={Dashboard}/>
-          <Route exact path='/book-ride' Component={BookRide}/>
+          <Route exact path='/book-ride' Component={Bookride}/>
           <Route exact path='/offer-ride' Component={OfferRide}/>
           <Route exact path='/future-rides' Component={FutureRides}/>
           <Route exact path='/reviews' Component={Reviews}/>
