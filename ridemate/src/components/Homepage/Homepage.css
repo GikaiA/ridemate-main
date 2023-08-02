@@ -21,10 +21,12 @@ body{
     font-weight: 500;
 }
 
-.driver{
+.driver-img{
     padding-top: 12px;
     margin-left: 5%;
     border-radius: 50px;
+    width: 30%;
+    height: auto;
 }
 
 .safety-section{
@@ -80,24 +82,23 @@ body{
     margin-right: 3%;
 }
 
-.safety-picture{
+.safety-img{
     margin-left: 3%;
     border-radius: 50px;
     width: 25%;
 }
 
 .school-title{
-    padding-top: 50px;
-    margin-left: 37%;
     color: rgb(255, 255, 255);
     font-weight: lighter;
+    text-align: center;     
 }
 
 .schools-section{
     padding-bottom: 50px;
     padding-top: 10px;
     background-color: #004AAD;
-    align-items: center;
+    justify-content: center;
 }
 .school-list{
     font-size: 23px;
@@ -109,13 +110,13 @@ body{
     margin-right: 5%;
 }
 
-.fau-logo{
+.fau-logo-img{
     margin-top: 20px;
     width: 200px;
     padding: 50px;
 }
 
-.pbsc-logo{
+.pbsc-logo-img{
     padding: 50px;
     width: 200px;
 }
@@ -123,11 +124,12 @@ body{
 .footer-section{
   background-color: #1c1b1b;
   color: white;
-  width: 100%;
-  height: 315px;
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  /*align-items: center;*/
 }
 
 .contact-footer-column{
@@ -142,6 +144,8 @@ body{
   cursor: pointer;
   color: #004AAD;
   font-weight: bold;
+  display: inline;
+  padding: 8px;
 }
 
 .dev-name:hover {
@@ -149,8 +153,8 @@ body{
 }
 
 .whole-page {
-  max-width: 1200px;
-  margin: 0 auto;
+  /*max-width: 1200px;*/
+  margin: auto auto;
 }
 
 .footer-title{
