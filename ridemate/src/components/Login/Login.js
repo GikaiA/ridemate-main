@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
 import rideshareuser from "../images/rideshare-user.png";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import {db} from "../firebase"
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -11,13 +12,20 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard"); // Redirect to the dashboard component after successful login
-    } catch (error) {
-      console.error("Error signing in:", error);
-    }
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // User logged in successfully, perform any additional actions here
+        const user = userCredential.user;
+        console.log('Logged in user:', user);
+
+        // Redirect the user to the dashboard or another appropriate route
+        navigate('/dashboard');
+      })
+      .catch((error) => {
+        // Handle login error
+        console.error('Error logging in user:', error.message);
+      });
   };
 
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Register.css";
 import { useState } from "react";
-import {createUserWithEmailAndPassword}from "firebase/auth";
-import {auth} from "../firebase";
+import {createUserWithEmailAndPassword, getAuth}from "firebase/auth";
+import {db} from "../firebase";
 import { useNavigate } from "react-router-dom";
 import ridematePhone from "../images/ridematePhone.png";
 import 'firebase/auth';
@@ -22,25 +22,41 @@ function Register() {
   //   const domain = email.split("@")[1];
   //   return validEduDomains.includes(domain);
   // };
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-
     // if (!isValidEduEmail(email)) {
     //   console.log("Please provide a valid edu email address.");
     //   return;
     // }
 
-    try{
-      await createUserWithEmailAndPassword(auth, email, password);
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+   createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // User registered successfully, perform any additional actions here
+        const user = userCredential.user;
+        console.log('Registered user:', user);
 
-      await auth.currentUser.updateProfile({
-        displayName: `${firstName} ${lastName}`,
+        // Save user details to Firestore
+        const userDocRef = db.collection('users').doc(user.uid);
+        userDocRef.set({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+        })
+        .then(() => {
+          console.log('User details saved to Firestore');
+        })
+        .catch((error) => {
+          console.error('Error saving user details to Firestore:', error);
+        });
+
+        // Redirect the user to the dashboard or another appropriate route
+        navigate('/dashboard');
       })
-      navigate("/dashboard");
-    }catch (error) {
-      console.error("Error creating user:", error)
-    }
+      .catch((error) => {
+        // Handle registration error
+        console.error('Error registering user:', error.message);
+      });
   };
 
   return (
@@ -54,7 +70,7 @@ function Register() {
           <div class="column-right">
             <div className="form-container">
               <h1 id="title">Register</h1>
-              <form className="register-form" onSubmit={handleRegister}>
+              <form className="register-form">
                 <p className="register-info">
                   Please fill this form to create an account.
                 </p>
@@ -131,7 +147,7 @@ function Register() {
                   />
                 </div>
               </form>
-              <button className="submit-button">
+              <button className="submit-button" onSubmit={handleRegister} >
                 Create Account
               </button>
               <div className="link-to-register">
