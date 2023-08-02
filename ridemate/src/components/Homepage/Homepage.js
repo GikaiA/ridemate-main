@@ -74,11 +74,15 @@ function Homepage() {
         </div>
       </div>
 
-      <div className="footer-section">
-        <footer>
-          <h1 className="footer-title">Contact Us</h1>
+       <div className="footer-section">
+   <footer class="footer">
+    <div className= "container">
+      <div className="row">
+
+        <div className= "footer-col">
+          <h1 className="footer-title"> Developers </h1>
           <div className="contact-footer-column">
-            <h3>Developers</h3>
+           
 
             <p className="dev-name" onClick={() => window.open(emailLinks["Antonio Crissy"])}>Antonio Crissy</p>
             <p className="dev-name" onClick={() => window.open(emailLinks["Ameer Khan"])}>Ameer Khan</p>
@@ -87,9 +91,23 @@ function Homepage() {
             <p className="dev-name" onClick={() => window.open(emailLinks["Jerusha Stewart"])}>Jerusha Stewart</p>
 
           </div>
+          </div>
+
+          <div className= "footer-col">
+          <h1 className="footer-title"> Fau </h1>
+          <div className="contact-footer-column">
+           
+
+            <p className="dev-name" ><a href="https://www.fau.edu/">Website</a></p>
+
+          </div>
+          </div>
+
+    </div>
+    </div>
         </footer>
-      </div>
       
+    </div>
     </div>
   );
 }

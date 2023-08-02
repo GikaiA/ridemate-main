@@ -1,8 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body{
     background-color: #004AAD;
     font-family: Arial, sans-serif;
 }
 
+.footer{
+    padding: 70px 0;
+	}
+
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.dev-name a{
+	text-decoration: none;
+	color: #004AAD;
+}
+
+.dev-name a:hover{
+color:white;
+}
 .header-section{
     display: flex;
     align-items: center;
@@ -20,6 +44,7 @@ body{
     font-size: 25px;
     font-weight: 500;
 }
+
 
 .driver{
     padding-top: 12px;
@@ -121,20 +146,28 @@ body{
 }
 
 .footer-section{
-  background-color: #1c1b1b;
+  background-color: #0c0a0acd;
   color: white;
-  width: 100%;
-  height: 315px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .contact-footer-column{
-    height: 100px;
-    flex-direction: column;
-    justify-content: flex-start;
+   font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	width: 143px;
+	position: relative;
+	
 }
+
+.container{
+	max-width: 170px;
+	margin:auto;
+	
+}
+
 
 
 .dev-name {
@@ -144,8 +177,54 @@ body{
   font-weight: bold;
 }
 
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.dev-name p{
+	font-size: 16px;
+	text-transform: capitalize;
+	text-decoration: none;
+	font-weight: 300;
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.footer-col {
+	
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+
+}
+
+
+
+
+.dev-name::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	height: 2px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
 .dev-name:hover {
   color:white;
+	padding-left: 8px;
 }
 
 .whole-page {
@@ -153,8 +232,24 @@ body{
   margin: 0 auto;
 }
 
-.footer-title{
-    text-align: center;
-     font-weight: lighter;
-  font-size: 24px;
+.footer-title h1{
+  font-size: 10px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+  width: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-title h1::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
 }
