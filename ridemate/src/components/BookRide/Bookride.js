@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./BookRide.css";
+import "./Bookride.css";
 import mapboxgl from "mapbox-gl"; // Import mapbox-gl library
 
-function BookRide() {
+function Bookride() {
   const [location, setLocation] = useState("");
 
   useEffect(() => {
@@ -47,4 +47,4 @@ function BookRide() {
   );
 }
 
-export default BookRide;
+export default Bookride;
