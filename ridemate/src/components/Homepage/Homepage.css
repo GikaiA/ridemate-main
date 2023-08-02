@@ -109,6 +109,7 @@ color:white;
     margin-left: 3%;
     border-radius: 50px;
     width: 25%;
+    height: auto;
 }
 
 .school-title{
@@ -127,6 +128,7 @@ color:white;
 .school-list{
     font-size: 23px;
     display: flex;
+    justify-content: center;
 }
 
 .logo-container{
