@@ -35,6 +35,14 @@ function BookRide() {
       setLocation("");
     }
   };
+  firestore.collection('BookRide').add(BookRide)
+  .then(()=> {
+    console.log('Booking Ride Completed 1 ');
+  })
+  .catch((error) => {
+
+    consol.error('Error Booking:',error);
+  });
 
   return (
     <div>
