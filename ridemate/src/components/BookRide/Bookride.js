@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./BookRide.css";
+import "./BookRide.css"; 
 import mapboxgl from "mapbox-gl"; // Import mapbox-gl library
 
 function BookRide() {
