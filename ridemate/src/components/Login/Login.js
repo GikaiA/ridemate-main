@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import rideshareuser from "../images/rideshare-user.png";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
-import {db} from "../firebase"
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import 'firebase/auth';
+import 'firebase/analytics';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() =>{
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      if (user) {
+        navigate("/dashboard")
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     const auth = getAuth();
@@ -62,7 +74,7 @@ function Login() {
             />
           </div>
           <div className="button-group">
-            <button className="login-button" >
+            <button className="login-button" onClick={handleLogin} >
               Login
             </button>{" "}
           </div>

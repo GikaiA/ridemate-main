@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Register.css";
 import { useState } from "react";
-import {createUserWithEmailAndPassword, getAuth}from "firebase/auth";
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged}from "firebase/auth";
 import {db} from "../firebase";
 import { useNavigate } from "react-router-dom";
 import ridematePhone from "../images/ridematePhone.png";
@@ -14,6 +14,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [user, setUser] = useState("");
 
 
   // const isValidEduEmail = (email) => {
@@ -26,6 +27,15 @@ function Register() {
     //   console.log("Please provide a valid edu email address.");
     //   return;
     // }
+
+      useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+         setUser(user) 
+        })
+        return unsubscribe;
+      }, []);
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -70,7 +80,7 @@ function Register() {
           <div class="column-right">
             <div className="form-container">
               <h1 id="title">Register</h1>
-              <form className="register-form">
+              <form className="register-form" onSubmit={handleRegister}>
                 <p className="register-info">
                   Please fill this form to create an account.
                 </p>
@@ -147,7 +157,7 @@ function Register() {
                   />
                 </div>
               </form>
-              <button className="submit-button" onSubmit={handleRegister} >
+              <button className="submit-button" onClick={handleRegister} >
                 Create Account
               </button>
               <div className="link-to-register">
