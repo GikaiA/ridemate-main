@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-i//mport firebase from "firebase/compat/app";
+import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
 //import {getAuth} from "firebase/auth";
 //import { getAnalytics } from "firebase/analytics";
