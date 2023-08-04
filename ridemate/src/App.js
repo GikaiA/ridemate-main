@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-i//mport firebase from "firebase/compat/app";
+//import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
 //import {getAuth} from "firebase/auth";
 //import { getAnalytics } from "firebase/analytics";
@@ -38,9 +38,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //const auth = getAuth(app);
 //const analytics = getAnalytics(app);
-const auth= firebase.auth()
+/*const auth = firebase.auth()
 const db = firebase.firestore()
-const analytics = firebase.analytics();
+const analytics = firebase.analytics();*/
 
   return (
     <>
