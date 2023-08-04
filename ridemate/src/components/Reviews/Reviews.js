@@ -18,7 +18,6 @@ function Reviews() {
         
 
         <div className="tabs-container">
-      
           <div className="button-container">
               
             <div className="button-container">
