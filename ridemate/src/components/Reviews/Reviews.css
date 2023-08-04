@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Inter;
+  }
+  
+  .column {
+    float: left;
+    padding: 10px;
+  }
+  
+  .column.left {
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .profile-image{
+    border-radius: 25px;
+    width: 70%;
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  
+  .small-images, #fau{
+    width: 200px;
+    margin-left: 400px;
+  }
+  
+  .small-images, #car{
+    width: 200px;
+    margin-left: 200px;
+  }
+  
+  #location-text{
+    text-align: center;
+    color: #000;
+    border: none;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  #small-text{
+    text-align: left;
+    color: #000;
+    border: none;
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: 450;
+  }
+  
+  #medium-text{
+    color: #000;
+    border: none;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  #large-text{
+    text-align: center;
+    color: #fffbfb;
+    border: none;
+    font-family: Inter;
+    font-size: 80px;
+    font-weight: 700;
+  }
+  
+  .text-container{
+    margin: 0px;
+    margin-top: 8px;
+    padding-top: 12px;
+    background-color: rgba(255, 255, 255, 0.727);
+    color:black;
+    border:white solid 5px;
+    border-radius: 25px;
+  }
+  
+  .left-column {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .button-container{
+    padding: 17px;
+  }
+  
+  .button-container:hover{
+    background-color: #004bad91;
+  }
+  
+  a:hover {
+    color: #fff !important;
+    background-color: none !important;
+
+  }
+  
+  #email{
+    border: none;
+  }
+  
+  .column.middle {
+    width: 70%;
+    margin-left: 20px;
+  }
+  
+  .page::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  input{
+    border: none;
+    border-radius: 20px;
+    height: 25px;
+    background-color: white;
+  }
