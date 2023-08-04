@@ -3,10 +3,10 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import firebase from "firebase/compat/app";
+i//mport firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+//import {getAuth} from "firebase/auth";
+//import { getAnalytics } from "firebase/analytics";
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
