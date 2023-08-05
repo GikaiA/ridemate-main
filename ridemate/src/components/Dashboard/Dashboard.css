@@ -11,6 +11,7 @@ body {
   .column.left {
     width: 20%;
     background-color: rgb(255, 255, 255);
+    height: 100vh;
   }
   
   .profile-image{
@@ -100,12 +101,12 @@ body {
   
   .column.middle {
     width: 40%;
-    margin-left: 20px;
+    margin-left: 10px;
   }
   
   .column.right {
-    width: 30%;
-    margin-left: 50px;
+    width: 20%;
+    margin-left:2px;
   }
   
   .page::after {
