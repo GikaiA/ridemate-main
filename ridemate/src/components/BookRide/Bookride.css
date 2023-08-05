@@ -1,10 +1,22 @@
 .bookride-section{
     display: block;
   text-align: center;
+  align-items: center;
 }
 
 .bookride-search{
     width: 1800px;
+}
+
+.destination-search{
+    width: 1890px;
+}
+
+.search-container{
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        margin-top: 16px;
 }
 
 .bookride-button{
@@ -15,10 +27,17 @@
     color: white;
     transition-duration: 0.4s;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 22px;
+    margin-top: 8px;  
+    margin-bottom: 30px;
+
 }
 
 .bookride-button:hover{
     background-color: white;
     color: black;
+}
+
+.bookride-title{
+color: white;
 }

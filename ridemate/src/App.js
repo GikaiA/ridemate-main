@@ -16,7 +16,7 @@ import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
 import AccessForbidden from './components/AccessForbidden/AccessForbidden';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import BookRideForm from './BookRideForm';
+// import BookRideForm from './BookRideForm';
 function App() {
   // Import the functions you need from the SDKs you need
 
@@ -58,7 +58,7 @@ const analytics = getAnalytics(app);
           <Route exact path='/login' Component={Login}/>
           <Route exact path='/dashboard' Component={Dashboard}/>
           <Route exact path='/book-ride' Component={BookRide}/>
-          <Route exact path='/BookRideForm'Component={BookRide}/>
+          {/* <Route exact path='/BookRideForm'Component={BookRide}/> */}
           <Route exact path='/offer-ride' Component={OfferRide}/>
           <Route exact path='/future-rides' Component={FutureRides}/>
           <Route exact path='/reviews' Component={Reviews}/>
