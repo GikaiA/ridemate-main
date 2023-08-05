@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import "./Register.css";
 import { getAuth, createUserWithEmailAndPassword, onIdTokenChanged} from "firebase/auth";
-import { db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore"; // Import Firestore functions
 import { useNavigate } from "react-router-dom";
+// import { Firestore } from "firebase/firestore";
 import ridematePhone from "../images/ridematePhone.png";
 import Navbar from "../Navbar/Navbar";
+import { db } from "../firebase";
 
 function Register() {
   const navigate = useNavigate();
@@ -132,7 +134,7 @@ function Register() {
                     <b>Re-Enter Password</b>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     className="input-field-register"
                     placeholder="Type your password"
                     name="password"
