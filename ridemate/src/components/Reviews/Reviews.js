@@ -62,7 +62,7 @@ function Reviews() {
         </div>
 
         <div className="text-container">
-          <p id='medium-text'>Laura Gutierrez</p> <p>08/25/2022</p>
+          <p id='medium-text'>Laura Gutierrez</p>
           <p id='small-text'>What an incredible ride with Sara! She was absolutely wonderful, friendly, and punctual. She provided a comfortable and safe journey.</p>
         </div>
 
