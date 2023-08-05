@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Reviews.css";
+import { Link } from "react-router-dom";
 import sara from "../images/sara.jpg";
 import { ChangeEvent, useState } from "react";
 
@@ -19,7 +20,7 @@ function Reviews() {
         <p id="location-text"> <i class="fa-solid fa-location-dot fa-sm"></i> Greenacres </p>
 
         <div className="tabs-container">
-          <div className="button-container">
+          <div>
               
             <div className="button-container">
               
@@ -59,6 +60,9 @@ function Reviews() {
         <div className="input-container">
           <input type="text" placeholder="How was your carpolling experience? " onChange={handleChange} value={inputText} />
           <p id='input-text'>{inputText}</p>
+          <Link to='/post'>
+            <button className="post-button" >Post !</button>
+          </Link>
         </div>
 
         <div className="text-container">

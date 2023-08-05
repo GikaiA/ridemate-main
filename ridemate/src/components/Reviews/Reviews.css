@@ -68,6 +68,7 @@ body {
     background-color: rgba(0, 0, 0, 0.727);
     color:rgb(255, 255, 255) !important;
     border-radius: 25px;
+    
   }
 
   #input-text{
@@ -78,9 +79,9 @@ body {
 
   input{
     border: none;
-    margin: 20px 20px;
+    margin: 10px;
     border-radius: 20px;
-    width:500px;
+    width:98%;
     height: 25px;
     background-color: white;
   }
@@ -105,7 +106,7 @@ body {
   
   a:hover {
     color: #fff !important;
-    background-color: none !important;
+    background-color: #004bad00 !important;
   }
 
   .page::after {
@@ -115,3 +116,20 @@ body {
   }
   
   
+  .post-button{
+    background-color: white;
+    border-radius: 12px;
+    padding: 1rem 3.5rem;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    border-color: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  
+ .post-button:hover{
+  border-color: white;
+  background-color: #004bad91;
+  color: rgb(255, 255, 255);
+  }
