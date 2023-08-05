@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth";
+import {getAuth, signOut} from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
@@ -16,7 +16,6 @@ import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
 import AccessForbidden from './components/AccessForbidden/AccessForbidden';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-// import BookRideForm from './BookRideForm';
 function App() {
   // Import the functions you need from the SDKs you need
 
@@ -42,12 +41,22 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
+useEffect(() =>{
+  const auth = getAuth(app);
+signOut(auth)
+  .then(() => {
+    console.log('Signed out successfully');
+  })
+  .catch((error) => {
+    console.error('Error signing out:', error);
+  });
+}, []);
 
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path='/' Component={
+          <Route exact path='/' element={
             <>
             <Navbar/>
             <Homepage/>
@@ -58,7 +67,6 @@ const analytics = getAnalytics(app);
           <Route exact path='/login' Component={Login}/>
           <Route exact path='/dashboard' Component={Dashboard}/>
           <Route exact path='/book-ride' Component={BookRide}/>
-          {/* <Route exact path='/BookRideForm'Component={BookRide}/> */}
           <Route exact path='/offer-ride' Component={OfferRide}/>
           <Route exact path='/future-rides' Component={FutureRides}/>
           <Route exact path='/reviews' Component={Reviews}/>
