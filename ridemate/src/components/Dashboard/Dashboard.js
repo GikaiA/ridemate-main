@@ -1,23 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import sara from "../images/sara.jpg";
-import { ChangeEvent, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-// import { Auth } from "firebase/auth";
+import { getAuth, onIdTokenChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
 
 function Dashboard() {
   const [inputText, setInputText] = useState("");
+  const navigate = useNavigate();
+  const auth = getAuth();
 
   const handleChange = (e) => {
-    
     setInputText(e.target.value);
-  }
-  const navigate = useNavigate();
+  };
 
   const handleLogout = () => {
-    // eslint-disable-next-line no-undef
     signOut(auth)
       .then(() => {
         // Sign-out successful.
@@ -31,7 +27,7 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged( (user) => {
+    const unsubscribe = onIdTokenChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         const uid = user.uid;
@@ -44,7 +40,8 @@ function Dashboard() {
 
     // Clean up the subscription to avoid memory leaks
     return () => unsubscribe();
-  }, []);
+  }, [auth]);
+
 
   return (
     <div className="page">
