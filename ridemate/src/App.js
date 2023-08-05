@@ -14,6 +14,8 @@ import Reviews from './components/Reviews/Reviews';
 import BookRide from './components/BookRide/BookRide';
 import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
+import AccessForbidden from './components/AccessForbidden/AccessForbidden';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   // Import the functions you need from the SDKs you need
@@ -51,6 +53,7 @@ const analytics = getAnalytics(app);
             <Homepage/>
             </>
           }/>
+          <Route exact path= 'access-forbidden' Component={AccessForbidden}/>
           <Route exact path='/register' Component={Register}/>
           <Route exact path='/login' Component={Login}/>
           <Route exact path='/dashboard' Component={Dashboard}/>
