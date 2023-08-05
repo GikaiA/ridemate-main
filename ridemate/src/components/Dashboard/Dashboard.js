@@ -106,7 +106,6 @@ function Dashboard() {
       </div>
 
       <div className="column middle">
-        <h1 id='large-text'>{firstName} {lastName}</h1>
         <div className="text-container">
           <p id='medium-text'>About me</p>
           <input type="text" placeholder="Introduce yourself ! " onChange={handleChange} value={inputText} />
