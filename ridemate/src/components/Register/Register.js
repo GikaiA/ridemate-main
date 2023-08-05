@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import "./Register.css";
 import { useState } from "react";
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged}from "firebase/auth";
+//import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged}from "firebase/auth";
+import {getAuth,createUserWithEmailAndPassword,updateProfile} from "firebase/auth";
 import {db} from "../firebase";
 import { useNavigate } from "react-router-dom";
 import ridematePhone from "../images/ridematePhone.png";
@@ -16,7 +17,7 @@ function Register() {
   const [lastName, setLastName] = useState("");
   const [user, setUser] = useState("");
 
-
+  // older not use
   // const isValidEduEmail = (email) => {
   //   // Add your list of valid edu email domains here
   //   const validEduDomains = ["bc.edu", "fau.edu", "pbsc.edu"];
@@ -30,7 +31,8 @@ function Register() {
 
       useEffect(() => {
         const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+       //const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = updateProfile(auth,(user)=> {
          setUser(user) 
         })
         return unsubscribe;

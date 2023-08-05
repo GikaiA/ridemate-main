@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    max-width: 1500px;
+    max-width: auto;
   }
   
   .navbar-title {
@@ -31,7 +31,6 @@
   .nav-menu {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
     list-style: none;
     text-align: center;
     width: 60vw;
@@ -39,14 +38,14 @@
     margin-right: 2rem;
   }
   
-  .nav-item {
-    
-  }
+  /* .nav-item {
+  } */
   
   .nav-links {
     display: flex;
     align-items: center;
     height: 55px;
+    color: rgb(46, 46, 46);
   
   }
   
@@ -175,6 +174,25 @@
   }
   
   .sign-up-button:hover{
+    background-color: white;
+    color: black;
+  }
+
+
+  .sign-out-button{
+    padding: 10px 25px;
+    border-radius: 15px;
+    border:2px solid;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    transition-duration: 0.4s;
+    font-size: 15px;
+    margin-right: 25px;
+    font-weight: 700;
+  }
+
+  .sign-out-button:hover{
     background-color: white;
     color: black;
   }
