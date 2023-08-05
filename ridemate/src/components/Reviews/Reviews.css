@@ -10,25 +10,23 @@ body {
   
   .column.left {
     width: 20%;
+    height:100vh;
     background-color: rgb(255, 255, 255);
-    height: 50%;
   }
   
+    
+  .column.middle {
+    width: 70%;
+    height: 100vh;
+    margin-left: 20px;
+  }
+  
+
   .profile-image{
     border-radius: 25px;
     width: 70%;
     margin-left: 50px;
     margin-top: 10px;
-  }
-  
-  .small-images, #fau{
-    width: 200px;
-    margin-left: 400px;
-  }
-  
-  .small-images, #car{
-    width: 200px;
-    margin-left: 200px;
   }
   
   #location-text{
@@ -44,7 +42,6 @@ body {
     text-align: left;
     color: #000;
     border: none;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 450;
   }
@@ -52,8 +49,7 @@ body {
   #medium-text{
     color: #000;
     border: none;
-    font-family: Inter;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
   }
   
@@ -61,24 +57,42 @@ body {
     text-align: center;
     color: #fffbfb;
     border: none;
-    font-family: Inter;
-    font-size: 80px;
+    font-size: 50px;
     font-weight: 700;
+  }
+  
+  .input-container{
+    
+    margin-top: 8px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.727);
+    color:rgb(255, 255, 255) !important;
+    border-radius: 25px;
+  }
+
+  #input-text{
+    color:rgb(255, 255, 255);
+    text-align: left;
+    font-size: 25px;
+  }
+
+  input{
+    border: none;
+    margin: 20px 20px;
+    border-radius: 20px;
+    width:500px;
+    height: 25px;
+    background-color: white;
   }
   
   .text-container{
     margin: 0px;
     margin-top: 8px;
-    padding-top: 12px;
+    padding-top: 0;
     background-color: rgba(255, 255, 255, 0.727);
     color:black;
     border:white solid 5px;
     border-radius: 25px;
-  }
-  
-  .left-column {
-    width: 30%;
-    background-color: rgb(255, 255, 255);
   }
   
   .button-container{
@@ -92,27 +106,12 @@ body {
   a:hover {
     color: #fff !important;
     background-color: none !important;
+  }
 
-  }
-  
-  #email{
-    border: none;
-  }
-  
-  .column.middle {
-    width: 70%;
-    margin-left: 20px;
-  }
-  
   .page::after {
     content: "";
     display: table;
     clear: both;
   }
   
-  input{
-    border: none;
-    border-radius: 20px;
-    height: 25px;
-    background-color: white;
-  }
+  
