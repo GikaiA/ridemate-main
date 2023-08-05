@@ -5,10 +5,6 @@ body{
     font-family: Arial, sans-serif;
 }
 
-.footer{
-    padding: 70px 0;
-	}
-
 .footer-col{
    width: 25%;
    padding: 0 15px;
@@ -46,10 +42,12 @@ color:white;
 }
 
 
-.driver{
+.driver-img{
     padding-top: 12px;
     margin-left: 5%;
     border-radius: 50px;
+    width: 30%;
+    height: auto;
 }
 
 .safety-section{
@@ -105,7 +103,7 @@ color:white;
     margin-right: 3%;
 }
 
-.safety-picture{
+.safety-picture-img{
     margin-left: 3%;
     border-radius: 50px;
     width: 25%;
@@ -113,8 +111,9 @@ color:white;
 }
 
 .school-title{
-    padding-top: 50px;
-    margin-left: 37%;
+    /*padding-top: 50px;
+    margin-left: 37%;*/
+    text-align: center;
     color: rgb(255, 255, 255);
     font-weight: lighter;
 }
@@ -136,13 +135,13 @@ color:white;
     margin-right: 5%;
 }
 
-.fau-logo{
+.fau-logo-img{
     margin-top: 20px;
     width: 200px;
     padding: 50px;
 }
 
-.pbsc-logo{
+.pbsc-logo-img{
     padding: 50px;
     width: 200px;
 }
@@ -150,18 +149,25 @@ color:white;
 .footer-section{
   background-color: #0c0a0acd;
   color: white;
-
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .contact-footer-column{
-   font-size: 18px;
+    /*
+    font-size: 18px;
 	color: #ffffff;
 	text-transform: capitalize;
-	margin-bottom: 35px;
 	font-weight: 500;
 	width: 143px;
 	position: relative;
-	
+    display: inline;
+    */
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .container{
@@ -177,6 +183,8 @@ color:white;
   cursor: pointer;
   color: #004AAD;
   font-weight: bold;
+  display: inline;
+  padding: 8px;
 }
 
 .container{
@@ -208,11 +216,7 @@ color:white;
 	color: #bbbbbb;
 	display: block;
 	transition: all 0.3s ease;
-
 }
-
-
-
 
 .dev-name::before{
 	content: '';
@@ -225,18 +229,18 @@ color:white;
 }
 
 .dev-name:hover {
-  color:white;
+    color:white;
 	padding-left: 8px;
 }
 
 .whole-page {
-  max-width: 1200px;
-  margin: 0 auto;
+/*  max-width: 1200px;
+  margin: 0 auto;*/
 }
 
-.footer-title h1{
+.footer-title h2{
   font-size: 10px;
-	color: #ffffff;
+    color: #ffffff;
 	text-transform: capitalize;
 	margin-bottom: 35px;
 	font-weight: 500;
@@ -245,7 +249,7 @@ color:white;
   font-family: 'Poppins', sans-serif;
 }
 
-.footer-title h1::before{
+.footer-title h2::before{
 	content: '';
 	position: absolute;
 	left:0;
