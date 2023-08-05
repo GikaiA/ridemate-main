@@ -85,7 +85,7 @@ function Homepage() {
             <p className="dev-name" onClick={() => window.open(emailLinks["Jerusha Stewart"])}>Jerusha Stewart</p>
           </div>
 
-          <h2 className="footer-title"> Fau </h2>
+          <h2 className="footer-title"> FAU </h2>
           <div className="contact-footer-column">
             <p className="dev-name" ><a href="https://www.fau.edu/">Website</a></p>
           </div>
