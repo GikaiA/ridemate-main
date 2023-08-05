@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-i//mport firebase from "firebase/compat/app";
+import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
 //import {getAuth} from "firebase/auth";
 //import { getAnalytics } from "firebase/analytics";
@@ -11,7 +11,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Reviews from './components/Reviews/Reviews';
-import BookRide from './components/BookRide/BookRide';
+// import BookRide from './components/BookRide/BookRide';
 import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
 
@@ -38,9 +38,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //const auth = getAuth(app);
 //const analytics = getAnalytics(app);
-const auth= firebase.auth()
-const db = firebase.firestore()
-const analytics = firebase.analytics();
+// const auth= firebase.auth()
+// const db = firebase.firestore()
+// const analytics = firebase.analytics();
 
   return (
     <>
@@ -55,7 +55,7 @@ const analytics = firebase.analytics();
           <Route exact path='/register' Component={Register}/>
           <Route exact path='/login' Component={Login}/>
           <Route exact path='/dashboard' Component={Dashboard}/>
-          <Route exact path='/book-ride' Component={BookRide}/>
+          {/* <Route exact path='/book-ride' Component={BookRide}/> */}
           <Route exact path='/offer-ride' Component={OfferRide}/>
           <Route exact path='/future-rides' Component={FutureRides}/>
           <Route exact path='/reviews' Component={Reviews}/>

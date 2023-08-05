@@ -50,7 +50,7 @@ const otherdriverData = {
             <p>{otherdriverData.name}</p>
             <p>Status: {otherdriverData.status}</p>
             <p>Location: {otherdriverData.location}</p>
-            <p>Car Type: {other driverData.car}</p>
+            <p>Car Type: {otherdriverData.car}</p>
           </div>
         </div>
         <div className="buttons">
