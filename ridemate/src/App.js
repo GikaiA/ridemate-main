@@ -47,7 +47,7 @@ const analytics = getAnalytics(app);
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={
+          <Route exact path='/' Component={
             <>
             <Navbar/>
             <Homepage/>
