@@ -11,7 +11,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Reviews from './components/Reviews/Reviews';
-import BookRide from './components/BookRide/Bookride';
+import BookRide from './components/BookRide/BookRide';
 import OfferRide from './components/OfferRide/OfferRide';
 import FutureRides from './components/FutureRides/FutureRides';
 
