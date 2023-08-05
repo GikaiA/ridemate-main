@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "./BookRide.css";
 import { db } from "../firebase"; // Import the getFirestore function
+import {firestore} from '.firebaseConfig';
 import mapboxgl from "mapbox-gl";
 import Navbar from "../Navbar/Navbar";
 
-function BookRide() {
+
+const BookRideForm =() => {
+  const[pickupLocation,setPickupLocation] = useState('');
+  const[destination,setDestination] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    firestore.collection('BookRide').add ({
+      pickupLocation,
+      destination,
+      timestamp: new Date(),
+    });
+    setPickupLocation('');
+    setPickupLocation('');
+  };
+
+
+
+//function BookRide() {
   // const [location, setLocation] = useState("");
 
   // // const firestore = getFirestore(); // Get the Firestore instance
