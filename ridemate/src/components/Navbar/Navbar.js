@@ -9,6 +9,7 @@ function Navbar() {
   const [button, setButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -64,17 +65,21 @@ function Navbar() {
           {/* Conditionally render "Schools" and "Safety" sections */}
           {!isLoggedIn && (
             <>
-              <li className="nav-item">
-                <Link to="/#safety" className="nav-links" onClick={closeMobileMenu}>
-                  Safety
-                </Link>
-              </li>
+              {location.pathname === '/' && (
+                <li className="nav-item">
+                  <Link to="/#safety" className="nav-links" onClick={closeMobileMenu}>
+                    Safety
+                  </Link>
+                </li>
+              )}
 
-              <li className="nav-item">
-                <Link to="/#schools" className="nav-links" onClick={closeMobileMenu}>
-                  Schools
-                </Link>
-              </li>
+              {location.pathname === '/' && (
+                <li className="nav-item">
+                  <Link to="/#schools" className="nav-links" onClick={closeMobileMenu}>
+                    Schools
+                  </Link>
+                </li>
+              )}
             </>
           )}
 
@@ -110,18 +115,23 @@ function Navbar() {
           </button>
         ) : (
           <>
-            <Link to="/register">
-              <button className="sign-up-button">SIGN UP</button>
-            </Link>
-            <Link to="/login">
-              <button className="login-btn">LOGIN</button>
-            </Link>
+            {location.pathname !== '/register' && location.pathname !== '/login' && (
+              <Link to="/register">
+                <button className="sign-up-button">SIGN UP</button>
+              </Link>
+            )}
+
+            {location.pathname !== '/register' && location.pathname !== '/login' && (
+              <Link to="/login">
+                <button className="login-btn">LOGIN</button>
+              </Link>
+            )}
           </>
         )}
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
 

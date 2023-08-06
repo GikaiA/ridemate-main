@@ -8,8 +8,8 @@
   .image-container {
     flex: 1;
     padding: 2rem;
-    border: 2px solid #000;
-    border-radius: 10px;
+    /* border: 2px solid #000;
+    border-radius: 10px; */
   }
   
   .floating-image {
@@ -20,7 +20,7 @@
   .login-container {
     flex: 1;
     padding: 2rem;
-  }
+    }
   
   .login-title {
     text-align: center;
@@ -40,7 +40,7 @@
   
   a {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.1rem 0.42rem;
     border-radius: 10px;
     text-decoration: none;
   }
@@ -49,6 +49,11 @@
     background-color: #004aad;
     color: #fff;
   }
+
+  .signup-button{
+    color: white;
+    font-size: 22px;
+  }
   
   .login-title{
     color: white;
@@ -56,17 +61,19 @@
   
   .label-name{
     color: white;
+    font-size: 21px;
   }
   
   .login-button{
     background-color: transparent;
-    border-radius: 12px;
+    border-radius: 18px;
     padding: 1rem 3.5rem;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     border-color: white;
     transition-duration: 0.4s;
     cursor: pointer;
+    font-weight: bold;
   }
   
   
@@ -81,4 +88,9 @@
   
   .create-account-text{
     font-size: 18px;
+    color: white;
+  }
+
+  .create-account-link{
+    font-size: 21px;
   }

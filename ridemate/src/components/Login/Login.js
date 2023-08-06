@@ -40,14 +40,14 @@ function Login() {
 
   return (
     <div className="login-page">
-      <h1>
+      {/* <h1>
         <a href="/">RideMate</a>
-      </h1>
+      </h1> */}
       <div className="image-container">
         <img className="floating-image" src={rideshareuser} alt="Floating" />
       </div>
       <div className="login-container">
-        <h2 className="login-title">Login</h2>
+        <h1 className="login-title">Login</h1>
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="username" className="label-name">Email</label>
