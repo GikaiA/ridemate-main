@@ -4,6 +4,7 @@ import sara from "../images/sara.jpg";
 import { getAuth, onIdTokenChanged, signOut } from "firebase/auth";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [inputText, setInputText] = useState("");
@@ -110,6 +111,9 @@ function Dashboard() {
           <p id='medium-text'>About me</p>
           <input type="text" placeholder="Introduce yourself ! " onChange={handleChange} value={inputText} />
           <p id='small-text'>{inputText}</p>
+          <Link to=''>
+            <button className="post-button" >Post !</button>
+          </Link>
           <p id='medium-text'>School</p>
           <p id='small-text'>FAU, Boca Raton</p>
         </div>
