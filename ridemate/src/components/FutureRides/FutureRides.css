@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet');
 
- body {
+/*body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #004AAD;
-}
+}*/
 
 .container {
   display: flex;
