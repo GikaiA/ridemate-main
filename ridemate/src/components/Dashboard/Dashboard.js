@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import sara from "../images/sara.jpg";
-import { ChangeEvent, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-// import { Auth } from "firebase/auth";
+import { getAuth, onIdTokenChanged, signOut } from "firebase/auth";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-
 
 function Dashboard() {
   const [inputText, setInputText] = useState("");
+  // const [user, setUser] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const navigate = useNavigate();
+  const auth = getAuth();
 
   const handleChange = (e) => {
-    
     setInputText(e.target.value);
-  }
-  const navigate = useNavigate();
+  };
 
   const handleLogout = () => {
-    // eslint-disable-next-line no-undef
     signOut(auth)
       .then(() => {
         // Sign-out successful.
@@ -31,20 +31,32 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged( (user) => {
+    const unsubscribe = onIdTokenChanged(auth, async (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
+        // User is signed in
         const uid = user.uid;
         console.log("uid", uid);
+  
+        // Fetch user's first name and last name from Firestore
+        const userDocRef = db.collection('users').doc(user.uid);
+        const userDoc = await userDocRef.get();
+  
+        if (userDoc.exists) {
+          const userData = userDoc.data();
+          setFirstName(userData.firstName);
+          setLastName(userData.lastName);
+        }
       } else {
         // User is signed out
         console.log("user is logged out");
+        setFirstName(""); // Reset first name when user is signed out
+        setLastName("");  // Reset last name when user is signed out
       }
     });
-
+  
     // Clean up the subscription to avoid memory leaks
     return () => unsubscribe();
-  }, []);
+  }, [auth]);
 
   return (
     <div className="page">
@@ -94,7 +106,6 @@ function Dashboard() {
       </div>
 
       <div className="column middle">
-        <h1 id='large-text'>Sara Hernandez</h1>
         <div className="text-container">
           <p id='medium-text'>About me</p>
           <input type="text" placeholder="Introduce yourself ! " onChange={handleChange} value={inputText} />

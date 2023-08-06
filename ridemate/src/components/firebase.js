@@ -1,33 +1,29 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
 import { getAuth } from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
+import {getStorage} from 'firebase/storage';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCfYkjkGJXrbL3Usb9W5sIOYbXiv1yzOkQ",
-  authDomain: "ridemate-main.firebaseapp.com",
-  databaseURL: "https://ridemate-main-default-rtdb.firebaseio.com",
-  projectId: "ridemate-main",
-  storageBucket: "ridemate-main.appspot.com",
-  messagingSenderId: "204573329333",
-  appId: "1:204573329333:web:e790ab7585cdaa9d04fbfc",
-  measurementId: "G-HJGS4N8R8E"
+  apiKey: "AIzaSyDaTebJ87um1Aa8Pz1ky5YGo2phJeEbAbs",
+  authDomain: "ridemate-pro.firebaseapp.com",
+  projectId: "ridemate-pro",
+  storageBucket: "ridemate-pro.appspot.com",
+  messagingSenderId: "203618115131",
+  appId: "1:203618115131:web:a54fafecefc7f3321e461e",
+  measurementId: "G-0700GCBDG4"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 const analytics = getAnalytics(app);
-
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-
-export default app;
+const storage = getStorage(app);
+ 
+export {app, auth, db, storage}

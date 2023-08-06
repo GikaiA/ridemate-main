@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 import "./Register.css";
-import { useState } from "react";
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged}from "firebase/auth";
-import {db} from "../firebase";
+import { getAuth, createUserWithEmailAndPassword, onIdTokenChanged} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; // Import Firestore functions
 import { useNavigate } from "react-router-dom";
+// import { Firestore } from "firebase/firestore";
 import ridematePhone from "../images/ridematePhone.png";
-import 'firebase/auth';
-import 'firebase/analytics';
+import Navbar from "../Navbar/Navbar";
+import { db } from "../firebase";
 
 function Register() {
   const navigate = useNavigate();
@@ -14,33 +14,20 @@ function Register() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
-
-  // const isValidEduEmail = (email) => {
-  //   // Add your list of valid edu email domains here
-  //   const validEduDomains = ["bc.edu", "fau.edu", "pbsc.edu"];
-  //   const domain = email.split("@")[1];
-  //   return validEduDomains.includes(domain);
-  // };
-    // if (!isValidEduEmail(email)) {
-    //   console.log("Please provide a valid edu email address.");
-    //   return;
-    // }
-
-      useEffect(() => {
-        const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-         setUser(user) 
-        })
-        return unsubscribe;
-      }, []);
-
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onIdTokenChanged(auth, (user) => {
+      setUser(user);
+    });
+    return unsubscribe;
+  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     const auth = getAuth();
-   createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // User registered successfully, perform any additional actions here
         const user = userCredential.user;
@@ -147,7 +134,7 @@ function Register() {
                     <b>Re-Enter Password</b>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     className="input-field-register"
                     placeholder="Type your password"
                     name="password"
