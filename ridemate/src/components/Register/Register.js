@@ -1,6 +1,10 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
-import { getAuth, createUserWithEmailAndPassword, onIdTokenChanged} from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onIdTokenChanged,
+} from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore"; // Import Firestore functions
 import { useNavigate } from "react-router-dom";
 // import { Firestore } from "firebase/firestore";
@@ -15,6 +19,7 @@ function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [user, setUser] = useState(null);
+  const [validEmail, setValidEmail] = useState(true);
 
   useEffect(() => {
     const auth = getAuth();
@@ -26,33 +31,40 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (!email.endsWith(".edu")) {
+      setValidEmail(false);
+      return;
+    }
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // User registered successfully, perform any additional actions here
         const user = userCredential.user;
-        console.log('Registered user:', user);
+        console.log("Registered user:", user);
+        navigate("/dashboard");
+
 
         // Save user details to Firestore
-        const userDocRef = db.collection('users').doc(user.uid);
-        userDocRef.set({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-        })
-        .then(() => {
-          console.log('User details saved to Firestore');
-        })
-        .catch((error) => {
-          console.error('Error saving user details to Firestore:', error);
-        });
+        const userDocRef = db.collection("users").doc(user.uid);
+        userDocRef
+          .set({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+          })
+          .then(() => {
+            console.log("User details saved to Firestore");
+          })
+          .catch((error) => {
+            console.error("Error saving user details to Firestore:", error);
+          });
 
         // Redirect the user to the dashboard or another appropriate route
-        navigate('/dashboard');
+        navigate("/dashboard");
       })
       .catch((error) => {
         // Handle registration error
-        console.error('Error registering user:', error.message);
+        console.error("Error registering user:", error.message);
       });
   };
 
@@ -94,26 +106,33 @@ function Register() {
                     placeholder="Type your last name"
                     name="last name"
                     required
-                    onChange={(e)=> setLastName(e.target.value)}
+                    onChange={(e) => setLastName(e.target.value)}
                     value={lastName}
                   />
                 </div>
 
                 <div className="label-container">
-                  <label for="Last Name" className="register-label">
+                  <label for="Email" className="register-label">
                     <b>Email</b>
                   </label>
                   <input
                     type="text"
-                    className="input-field-register"
+                    className={`input-field-register ${
+                      !validEmail ? "invalid-email" : ""
+                    }`}
                     placeholder="Type your email"
                     name="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setValidEmail(true);
+                    }}
                   />
+                  {!validEmail && (
+                    <p className="error-message">School email only (.edu)</p>
+                  )}
                 </div>
-
                 <div className="label-container">
                   <label for="First Name" className="register-label">
                     <b>Password</b>
@@ -144,7 +163,7 @@ function Register() {
                   />
                 </div>
               </form>
-              <button className="submit-button" onClick={handleRegister} >
+              <button className="submit-button" onClick={handleRegister}>
                 Create Account
               </button>
               <div className="link-to-register">

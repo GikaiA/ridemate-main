@@ -3,10 +3,11 @@ import "./Dashboard.css";
 import sara from "../images/sara.jpg";
 import { getAuth, onIdTokenChanged, signOut } from "firebase/auth";
 import { db } from "../firebase";
+import {doc, getDoc} from "firebase/firestore"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Dashboard() {
+function Dashboard(isLoggedIn) {
   const [inputText, setInputText] = useState("");
   // const [user, setUser] = useState(null);
   const [firstName, setFirstName] = useState("");
@@ -17,6 +18,10 @@ function Dashboard() {
   const handleChange = (e) => {
     setInputText(e.target.value);
   };
+
+  if(!isLoggedIn){
+    navigate('/accessforbidden')
+  }
 
   const handleLogout = () => {
     signOut(auth)
@@ -69,12 +74,12 @@ function Dashboard() {
 
         <div className="tabs-container">
         <div className="button-container">
-            
-            <a href="/" className="signout-button" id="medium-text" onClick={handleLogout}>
+            <p className="welcome-message">Welcome Sara Hernan!</p>
+            {/* <a href="/" className="signout-button" id="medium-text" onClick={handleLogout}>
             <i class="fa-solid fa-user"></i> Sign Out
-            </a>
+            </a> */}
           </div>
-          <div className="button-container">
+          {/* <div className="button-container">
             
             <a href="/dashboard" className="dashboard-button" id="medium-text">
             <i class="fa-solid fa-user"></i>  Dashboard
@@ -90,19 +95,19 @@ function Dashboard() {
             <a href="/offer-ride" className="offer-button" id="medium-text">
               <i class="fa-solid fa-hand-holding-hand"></i>  Offer Ride
             </a>
-          </div>
+          </div> */}
 
-          <div className="button-container">
+          {/* <div className="button-container">
             <a href="/future-rides" className="future-button" id="medium-text">
               <i class="fa-solid fa-car"></i> Future Rides
             </a>
-          </div>
+          </div> */}
 
-          <div className="button-container">
+          {/* <div className="button-container">
             <a href="/reviews" className="reviews-button" id="medium-text">
               <i class="fa-solid fa-star"></i> Reviews
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -117,9 +122,21 @@ function Dashboard() {
           <p id='medium-text'>School</p>
           <p id='small-text'>FAU, Boca Raton</p>
         </div>
+        <div className="text-container">
+          <p id='medium-text'>Car description</p>
+          <p id='small-text'><strong>Make: </strong> Toyota</p>
+          <p id='small-text'><strong>Model: </strong> Corolla</p>
+          <p id='small-text'><strong>Plates: </strong> DMK-28N</p>
+          <p id='small-text'><strong>Color: </strong> Red </p>
+        </div>
+        <div className="text-container">
+          <p id='medium-text'>Contact me</p>
+          <p id='small-text'><strong>Email:</strong><a href="https://mail.google.com/" id='email'>sarahernan8@fau.edu</a> </p>
+          <p id='small-text'><strong>Instagram: </strong><a href="https://www.instagram.com/" id='email'> @hernan_sara</a></p>
+        </div>
       </div>
       
-      <div className="column right">
+      {/* <div className="column right">
         <div className="text-container">
           <p id='medium-text'>Car description</p>
           <p id='small-text'><strong>Make: </strong> Toyota</p>
@@ -133,7 +150,7 @@ function Dashboard() {
           <p id='small-text'><strong>Email:</strong><a href="https://mail.google.com/" id='link'>sarahernan8@fau.edu</a> </p>
           <p id='small-text'><strong>Instagram: </strong><a href="https://www.instagram.com/" id='link'> @hernan_sara</a></p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
