@@ -126,8 +126,8 @@ function Dashboard() {
 
         <div className="text-container">
           <p id='medium-text'>Contact me</p>
-          <p id='small-text'><strong>Email:</strong><a href="https://mail.google.com/" id='email'>sarahernan8@fau.edu</a> </p>
-          <p id='small-text'><strong>Instagram: </strong><a href="https://www.instagram.com/" id='email'> @hernan_sara</a></p>
+          <p id='small-text'><strong>Email:</strong><a href="https://mail.google.com/" id='link'>sarahernan8@fau.edu</a> </p>
+          <p id='small-text'><strong>Instagram: </strong><a href="https://www.instagram.com/" id='link'> @hernan_sara</a></p>
         </div>
       </div>
     </div>

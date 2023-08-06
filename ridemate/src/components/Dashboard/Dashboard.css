@@ -73,7 +73,7 @@ body {
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.727);
     color:black;
-    border:white solid 5px;
+    border:rgb(255, 255, 255) solid 5px;
     border-radius: 25px;
   }
   
@@ -95,8 +95,9 @@ body {
     background-color: #004bad00 !important;
   }
   
-  #email{
+  #link{
     border: none;
+    color: black;
   }
   
   .column.middle {

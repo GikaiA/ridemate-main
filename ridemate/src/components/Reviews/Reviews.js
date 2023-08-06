@@ -55,7 +55,7 @@ function Reviews() {
         </div>
       </div>
 
-      <div className="column middle">
+      <div className="column-right">
         <h1 id='large-text'>Reviews</h1>
         <div className="input-container">
           <input type="text" placeholder="How was your carpolling experience? " onChange={handleChange} value={inputText} />
