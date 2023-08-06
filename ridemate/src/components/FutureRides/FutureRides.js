@@ -1,8 +1,14 @@
 import React from 'react'
 import "./FutureRides.css";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
-const FutureRides = () => {
+const FutureRides = ({isLoggedIn}) => {
+  // const navigate = useNavigate();
+  // if (!isLoggedIn) {
+  //   navigate('/accessforbidden');
+  //   return null; 
+  // }
   const driverData = {
     name: "John Doe",
     status: "Active",

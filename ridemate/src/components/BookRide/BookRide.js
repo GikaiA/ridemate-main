@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./BookRide.css";
+import { Navigate } from "react-router-dom";
 import mapboxgl from "mapbox-gl";
 import Navbar from "../Navbar/Navbar";
 import { db } from "../firebase"; // Import the db instance
 
-const BookRideForm = () => {
+const BookRideForm = (isLoggedIn) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
+  const navigate = Navigate;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!isLoggedIn){
+      navigate('/accessforbidden')
+      return null;
+    }
     db.collection("BookRide").add({
       pickupLocation,
       destination,

@@ -1,0 +1,19 @@
+.accessforbidden{
+    display: block;
+    text-align: center;
+    color: white;
+}
+
+.accessforbidden-title{
+    color: white;
+}
+
+.accessforbidden-text{
+    font-size: 23px;
+}
+
+.link-text{
+    color: white;
+    font-size: 23px;
+    
+}

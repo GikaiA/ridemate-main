@@ -4,7 +4,7 @@ import "./Navbar.css";
 import logo from "../images/logo.png"; 
 import { getAuth, signOut, onIdTokenChanged } from "firebase/auth";
 
-function Navbar() {
+function Navbar({UserIsLoggedIn}) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -88,6 +88,11 @@ function Navbar() {
             <li className="nav-item">
               <Link to="/dashboard" className="nav-links" onClick={closeMobileMenu}>
                 Dashboard
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/book-ride" className="nav-links" onClick={closeMobileMenu}>
+               Book Ride
               </Link>
             </li>
             <li className="nav-item">

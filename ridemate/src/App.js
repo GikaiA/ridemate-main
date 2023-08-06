@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./components/Homepage/Homepage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
@@ -15,8 +15,9 @@ import BookRide from "./components/BookRide/BookRide";
 import OfferRide from "./components/OfferRide/OfferRide";
 import FutureRides from "./components/FutureRides/FutureRides";
 import AccessForbidden from "./components/AccessForbidden/AccessForbidden";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
 function App() {
+  const [isLoggedIn, IsLoggedIn] = useState(false);
   // Import the functions you need from the SDKs you need
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -51,47 +52,52 @@ function App() {
         console.error("Error signing out:", error);
       });
   }, []);
+  
 
   return (
     <>
-    <Router>
-      <Navbar /> {/* Navbar always rendered */}
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <>
-              <Homepage />
-            </>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <>
-              {/* <Navbar /> */}
-              <Register />
-            </>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <>
-              {/* <Navbar /> */}
-              <Login />
-            </>
-          }
-        />
-        <Route exact path="/dashboard" Component={Dashboard} />
-        <Route exact path="/book-ride" Component={BookRide} />
-        <Route exact path="/offer-ride" Component={OfferRide} />
-        <Route exact path="/future-rides" Component={FutureRides} />
-        <Route exact path="/reviews" Component={Reviews} />
-      </Routes>
-    </Router>
-  </>
+      <Router>
+        <Navbar /> {/* Navbar always rendered */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Homepage />
+              </>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <>
+                <Register />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Login />
+              </>
+            }
+          />
+          <Route exact path="/dashboard" Component={Dashboard} />
+          <Route exact path="/book-ride" Component={BookRide} />
+          <Route exact path="/offer-ride" Component={OfferRide} />
+          <Route exact path="/future-rides" Component={FutureRides} />
+          <Route exact path="/reviews" Component={Reviews} />
+          {/* The AccessForbidden route */}
+          <Route
+            exact
+            path="/accessforbidden"
+            element={<AccessForbidden isLoggedIn={isLoggedIn} />}
+          />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
