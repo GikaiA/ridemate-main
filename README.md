@@ -21,7 +21,8 @@ RideMate is a successful example of a Scrum-based front-end project built using 
 ### Instructions
 
 - npm install
-- npm install Firebase
+- npm i firebase@9.1.3
+- npm i react-router-dom
 - npm start
 
 ### Project Team 13
