@@ -82,7 +82,7 @@ function BookRide() {
       <div className="search-container">
         <BookRideForm />
       </div>
-      <div id="map-container"></div>
+      <div id="map-container"style ={{width:'100%',height:'850px'}}></div>
     </div>
   );
 }
