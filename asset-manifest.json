@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ridemate-main/static/css/main.fbb9a560.css",
+    "main.js": "/ridemate-main/static/js/main.f1286bc5.js",
+    "static/media/ridematePhone.png": "/ridemate-main/static/media/ridematePhone.ac2597f1a55a476b661e.png",
+    "static/media/rideshare-user.png": "/ridemate-main/static/media/rideshare-user.164659ee68bec0bda2aa.png",
+    "static/media/rideshare-driver-handsome.png": "/ridemate-main/static/media/rideshare-driver-handsome.292b2541121839e9176f.png",
+    "static/media/fau-logo.png": "/ridemate-main/static/media/fau-logo.50ba8852e9ae1aacb44d.png",
+    "static/media/pbsc-logo.png": "/ridemate-main/static/media/pbsc-logo.a709d91a89da712efa38.png",
+    "static/media/sara.jpg": "/ridemate-main/static/media/sara.159fade186c4a0ab90c3.jpg",
+    "static/media/logo.png": "/ridemate-main/static/media/logo.441617fe28930c8ffd1b.png",
+    "index.html": "/ridemate-main/index.html",
+    "main.fbb9a560.css.map": "/ridemate-main/static/css/main.fbb9a560.css.map",
+    "main.f1286bc5.js.map": "/ridemate-main/static/js/main.f1286bc5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fbb9a560.css",
+    "static/js/main.f1286bc5.js"
+  ]
+}
