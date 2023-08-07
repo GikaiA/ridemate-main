@@ -18,8 +18,11 @@ function Reviews() {
           {" "}
           <i class="fa-solid fa-location-dot fa-sm"></i> Greenacres{" "}
         </p>
+        <p className="title-text"> 
+          Sara Hernan!
+        </p>
 
-        <div className="tabs-container">
+        {/* <div className="tabs-container">
           <div className="button-container">
             <a href="/dashboard" className="dashboard-button" id="medium-text">
               <i class="fa-solid fa-user"></i> Dashboard
@@ -48,7 +51,7 @@ function Reviews() {
               <i class="fa-solid fa-star"></i> Reviews
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="column middle">

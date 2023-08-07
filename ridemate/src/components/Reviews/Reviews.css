@@ -133,3 +133,8 @@ body {
   background-color: #004bad91;
   color: rgb(255, 255, 255);
   }
+
+  .title-text{
+    font-size: 32px;
+    text-align: center;
+  }

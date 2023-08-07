@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./BookRide.css";
-import { Navigate } from "react-router-dom";
 import mapboxgl from "mapbox-gl";
 import Navbar from "../Navbar/Navbar";
 import { db } from "../firebase"; // Import the db instance
 
-const BookRideForm = (isLoggedIn) => {
+const BookRideForm = () => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
-  const navigate = Navigate;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!isLoggedIn){
-      navigate('/accessforbidden')
-      return null;
-    }
     db.collection("BookRide").add({
       pickupLocation,
       destination,
@@ -65,24 +59,30 @@ function BookRide() {
     const map = new mapboxgl.Map({
       container: 'map-container',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-80.1010 , 26.3705 ],
+      center: [-80.1010, 26.3705],
       zoom: 12,
     });
 
+    const handleWindowResize = () => {
+      map.resize();
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
     return () => {
+      window.removeEventListener('resize', handleWindowResize);
       map.remove();
     };
   }, []);
 
   return (
     <div className="bookride-section">
-      <Navbar />
+      {/* <Navbar /> */}
       <h2 className="bookride-title">Book a Ride</h2>
       <div className="search-container">
-      <BookRideForm />
+        <BookRideForm />
       </div>
       <div id="map-container"></div>
-      
     </div>
   );
 }

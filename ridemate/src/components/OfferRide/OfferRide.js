@@ -47,10 +47,10 @@ const otherdriverData = {
         <div className="info">
          <div className="profile-image"><img src={otherdriverData.Pimage}></img></div>
           <div className="driver-info">
-            {/* <p>{otherdriverData.name}</p>
+            <p>{otherdriverData.name}</p>
             <p>Status: {otherdriverData.status}</p>
             <p>Location: {otherdriverData.location}</p>
-            <p>Car Type: {otherdriverData.car}</p> */}
+            <p>Car Type: {otherdriverData.car}</p>
           </div>
         </div>
         <div className="buttons">
